@@ -1,28 +1,1232 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<title>Hank Quinlan, Horrible Cop</title>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Hank Quinlan!</h1>
-				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-			</ul>
-		</footer>
-	</body>
+<head>
+<title>NATURAL RESOURCES CANADA</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+    span.foldopened { color: white; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: visible;
+    cursor:pointer; }
+
+
+    span.foldclosed { color: #666666; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: hidden;
+    cursor:pointer; }
+
+    span.foldspecial { color: #666666; font-size: xx-small; border-style: none solid solid none;
+    border-color: #CCCCCC; border-width: 1; font-family: sans-serif; padding: 0em 0.1em 0em 0.1em; background: #e0e0e0;
+    cursor:pointer; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+
+<script type="text/javascript">
+   // Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+   // Mozilla 0.9.6.
+
+   if (document.layers) {
+      //Netscape 4 specific code
+      pre = 'document.';
+      post = ''; }
+   if (document.getElementById) {
+      //Netscape 6 specific code
+      pre = 'document.getElementById("';
+      post = '").style'; }
+   if (document.all) {
+      //IE4+ specific code
+      pre = 'document.all.';
+      post = '.style'; }
+
+function layer_exists(layer) {
+   try {
+      eval(pre + layer + post);
+      return true; }
+   catch (error) {
+      return false; }}
+
+function show_layer(layer) {
+   eval(pre + layer + post).position = 'relative'; 
+   eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+   eval(pre + layer + post).visibility = 'hidden';
+   eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+   var i;
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folding_layer(folder+'_'+i); }
+
+   hide_layer('hide'+folder);
+   hide_layer('show'+folder);
+   hide_layer('fold'+folder);
+
+   scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<SPAN class="foldspecial" onclick="fold_document()">All +</SPAN>
+<SPAN class="foldspecial" onclick="unfold_document()">All -</SPAN>
+<p><span style="color: #000000;font-size: 125%;font-family: Futura Lt BT, sans-serif; ">NATURAL RESOURCES CANADA</span>
+<ul><li><span id="show1_1" class="foldclosed" onClick="show_folder('1_1')" style="POSITION: absolute">+</span> <span id="hide1_1" class="foldopened" onClick="hide_folder('1_1')">-</span>
+<span style="color: #0033ff;font-size: 112%;font-family: Futura Lt BT, sans-serif; ">MINISTER's OFFICE OFFICE</span>
+<ul id="fold1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #00b439;">Minister's Office Exempt Staff</span>
+
+</li>
+<li><span style="color: #00b439;">Department Staff</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 112%;font-family: Futura Lt BT, sans-serif; ">DEPUTY MINISTER's OFFICE</span>
+<ul><li><span style="color: #00b439;">Associate Deputy Minister's Office</span>
+
+</li>
+<li><span id="show1_2" class="foldclosed" onClick="show_folder('1_2')" style="POSITION: absolute">+</span> <span id="hide1_2" class="foldopened" onClick="hide_folder('1_2')">-</span>
+<span style="color: #00b439;">Audit and Evaluation Branch</span>
+<ul id="fold1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Chief Audit and Evaluation Executive's Office</span>
+
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Governance Division</span>
+
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Operations Division</span>
+
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Evaluation Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3" class="foldclosed" onClick="show_folder('1_3')" style="POSITION: absolute">+</span> <span id="hide1_3" class="foldopened" onClick="hide_folder('1_3')">-</span>
+<span style="color: #00b439;">Canadian Forest Service</span>
+<ul id="fold1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_3_1" class="foldclosed" onClick="show_folder('1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_3_1" class="foldopened" onClick="hide_folder('1_3_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">National Capital Region</span>
+<ul id="fold1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_3_1_1" class="foldclosed" onClick="show_folder('1_3_1_1')" style="POSITION: absolute">+</span> <span id="hide1_3_1_1" class="foldopened" onClick="hide_folder('1_3_1_1')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Science Policy Integration Branch</span>
+<ul id="fold1_3_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Strategic Science Policy and Engagement Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Research Coordination and Integration Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Assistant Deputy Minister's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Trade, Economics and Industry Branch</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Planning, Operations and Information Branch</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_2" class="foldclosed" onClick="show_folder('1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_3_2" class="foldopened" onClick="hide_folder('1_3_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Atlantic Forestry Centre</span>
+<ul id="fold1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span id="show1_3_2_1" class="foldclosed" onClick="show_folder('1_3_2_1')" style="POSITION: absolute">+</span> <span id="hide1_3_2_1" class="foldopened" onClick="hide_folder('1_3_2_1')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Health and Biodiversity</span>
+<ul id="fold1_3_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Decision Support Systems</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_2_2" class="foldclosed" onClick="show_folder('1_3_2_2')" style="POSITION: absolute">+</span> <span id="hide1_3_2_2" class="foldopened" onClick="hide_folder('1_3_2_2')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Production and Protection</span>
+<ul id="fold1_3_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Acadia Research Forest</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Pest Control Development</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Health Monitoring</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Fibre Centre</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Corner Brook Research Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_3" class="foldclosed" onClick="show_folder('1_3_3')" style="POSITION: absolute">+</span> <span id="hide1_3_3" class="foldopened" onClick="hide_folder('1_3_3')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Great Lakes Forestry Centre</span>
+<ul id="fold1_3_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span id="show1_3_3_1" class="foldclosed" onClick="show_folder('1_3_3_1')" style="POSITION: absolute">+</span> <span id="hide1_3_3_1" class="foldopened" onClick="hide_folder('1_3_3_1')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Planning and Operations</span>
+<ul id="fold1_3_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Programs and Planning</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Knowledge Transfer and Policy</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Economic Analysis and Geospatial Tools</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_3_2" class="foldclosed" onClick="show_folder('1_3_3_2')" style="POSITION: absolute">+</span> <span id="hide1_3_3_2" class="foldopened" onClick="hide_folder('1_3_3_2')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Integrated Pest Management</span>
+<ul id="fold1_3_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Pest Ecology</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Microbial Control</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Insect Biotechnology</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Monitoring and Surveillance</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Insect Production Services</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_3_3" class="foldclosed" onClick="show_folder('1_3_3_3')" style="POSITION: absolute">+</span> <span id="hide1_3_3_3" class="foldopened" onClick="hide_folder('1_3_3_3')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Ecology</span>
+<ul id="fold1_3_3_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Impacts of Forest Practices on Soil and Water</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Ecosystem Impacts</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Field Research Support</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Fire and Climate Change</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_4" class="foldclosed" onClick="show_folder('1_3_4')" style="POSITION: absolute">+</span> <span id="hide1_3_4" class="foldopened" onClick="hide_folder('1_3_4')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Laurentian Forestry Centre</span>
+<ul id="fold1_3_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Biology Program</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Ecosystems Program</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Research Directorate</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Planning and Operations</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_5" class="foldclosed" onClick="show_folder('1_3_5')" style="POSITION: absolute">+</span> <span id="hide1_3_5" class="foldopened" onClick="hide_folder('1_3_5')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Northern Forestry Centre</span>
+<ul id="fold1_3_5" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_3_5_1" class="foldclosed" onClick="show_folder('1_3_5_1')" style="POSITION: absolute">+</span> <span id="hide1_3_5_1" class="foldopened" onClick="hide_folder('1_3_5_1')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Scientific and Technical Support Programs</span>
+<ul id="fold1_3_5_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Publishing and Library</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Analytical Services</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_5_2" class="foldclosed" onClick="show_folder('1_3_5_2')" style="POSITION: absolute">+</span> <span id="hide1_3_5_2" class="foldopened" onClick="hide_folder('1_3_5_2')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Biology</span>
+<ul id="fold1_3_5_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Soil Science</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Entomology and Pathology</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Fire Research</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span id="show1_3_5_3" class="foldclosed" onClick="show_folder('1_3_5_3')" style="POSITION: absolute">+</span> <span id="hide1_3_5_3" class="foldopened" onClick="hide_folder('1_3_5_3')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Social Science, Systems and National Programs</span>
+<ul id="fold1_3_5_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Social Science</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Fire Management Systems</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Climate Change</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Landscape Management</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">National Programs</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Business Development</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Policy and Liaison</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_6" class="foldclosed" onClick="show_folder('1_3_6')" style="POSITION: absolute">+</span> <span id="hide1_3_6" class="foldopened" onClick="hide_folder('1_3_6')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Pacific Forestry Centre</span>
+<ul id="fold1_3_6" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span id="show1_3_6_1" class="foldclosed" onClick="show_folder('1_3_6_1')" style="POSITION: absolute">+</span> <span id="hide1_3_6_1" class="foldopened" onClick="hide_folder('1_3_6_1')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Innovation &amp; Dynamics</span>
+<ul id="fold1_3_6_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Research Service Labs</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Ecosystem Processes</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Pest Management Methods</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Effects of Forestry Practices</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_6_2" class="foldclosed" onClick="show_folder('1_3_6_2')" style="POSITION: absolute">+</span> <span id="hide1_3_6_2" class="foldopened" onClick="hide_folder('1_3_6_2')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Policy, Planning and Operations</span>
+<ul id="fold1_3_6_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Fire Management</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Health Monitoring</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Carbon Accounting</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest entomology</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_6_3" class="foldclosed" onClick="show_folder('1_3_6_3')" style="POSITION: absolute">+</span> <span id="hide1_3_6_3" class="foldopened" onClick="hide_folder('1_3_6_3')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Entomology and Phytosanitary Research &amp; Programs</span>
+<ul id="fold1_3_6_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Collaborative Forestry Program</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3_6_4" class="foldclosed" onClick="show_folder('1_3_6_4')" style="POSITION: absolute">+</span> <span id="hide1_3_6_4" class="foldopened" onClick="hide_folder('1_3_6_4')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Forest Information</span>
+<ul id="fold1_3_6_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">National Forest Information Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Landscape Management</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Canadian Wood Fibre Centre</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4" class="foldclosed" onClick="show_folder('1_4')" style="POSITION: absolute">+</span> <span id="hide1_4" class="foldopened" onClick="hide_folder('1_4')">-</span>
+<span style="color: #00b439;">Communications and Portfolio Sector</span>
+<ul id="fold1_4" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_4_1" class="foldclosed" onClick="show_folder('1_4_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1" class="foldopened" onClick="hide_folder('1_4_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Public Affairs Branch</span>
+<ul id="fold1_4_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Ministerial Affairs Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Issues and Events Management Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2" class="foldclosed" onClick="show_folder('1_4_2')" style="POSITION: absolute">+</span> <span id="hide1_4_2" class="foldopened" onClick="hide_folder('1_4_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Engagement and Digital Communications Branch</span>
+<ul id="fold1_4_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Digital Communications Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Engagement Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_3" class="foldclosed" onClick="show_folder('1_4_3')" style="POSITION: absolute">+</span> <span id="hide1_4_3" class="foldopened" onClick="hide_folder('1_4_3')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Portfolio Management and Corporate Secretariat Branch</span>
+<ul id="fold1_4_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Access to Information and Privacy Secretariat</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5" class="foldclosed" onClick="show_folder('1_5')" style="POSITION: absolute">+</span> <span id="hide1_5" class="foldopened" onClick="hide_folder('1_5')">-</span>
+<span style="color: #00b439;">Corporate Management and Services Sector</span>
+<ul id="fold1_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Assistant Deputy Minister's Office</span>
+
+</li>
+<li><span id="show1_5_1" class="foldclosed" onClick="show_folder('1_5_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1" class="foldopened" onClick="hide_folder('1_5_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Chief Information Officer and Security Branch</span>
+<ul id="fold1_5_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General and Chief Information Officer's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Information Management Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Administrative Services</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Application Services Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Desktop Services Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Business Service Management Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Security, Emergency Management and Intelligence Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_2" class="foldclosed" onClick="show_folder('1_5_2')" style="POSITION: absolute">+</span> <span id="hide1_5_2" class="foldopened" onClick="hide_folder('1_5_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Finance and Procurement Branch</span>
+<ul id="fold1_5_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Financial Planning and Corporate Resources Management</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Grants &amp; Contributions Policy and Revenue Generation</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Financial Policy, Reporting and Internal Controls</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Financial Renewal and Capacity Building</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Finance and Procurement Services</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">GCDOCS project</span>
+
+</li>
+<li><span id="show1_5_3" class="foldclosed" onClick="show_folder('1_5_3')" style="POSITION: absolute">+</span> <span id="hide1_5_3" class="foldopened" onClick="hide_folder('1_5_3')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Human Resources Branch</span>
+<ul id="fold1_5_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Executive Services and Talent Management Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">HR Services and Systems</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Workplace Management and Health</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Workplace Services</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Federal Infrastructure Initiative</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Corporate Human Resources</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_4" class="foldclosed" onClick="show_folder('1_5_4')" style="POSITION: absolute">+</span> <span id="hide1_5_4" class="foldopened" onClick="hide_folder('1_5_4')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Planning and Operations Branch</span>
+<ul id="fold1_5_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Client Services Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Executive Director's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Planning and Reporting Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_5" class="foldclosed" onClick="show_folder('1_5_5')" style="POSITION: absolute">+</span> <span id="hide1_5_5" class="foldopened" onClick="hide_folder('1_5_5')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Real Property and Workplace Services Branch</span>
+<ul id="fold1_5_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Asset Management and National Capital Region Services</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Environmental Management and Occupational Health and Safety</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Facilities Management Services - National Capital Region</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Facilities Management Services - Regions</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Federal Infrastructure Initiative</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Federal Science and Technology Infrastructure Initiative</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Real Property, Policy and Systems Division</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6" class="foldclosed" onClick="show_folder('1_6')" style="POSITION: absolute">+</span> <span id="hide1_6" class="foldopened" onClick="hide_folder('1_6')">-</span>
+<span style="color: #00b439;">Energy Sector</span>
+<ul id="fold1_6" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_6_1" class="foldclosed" onClick="show_folder('1_6_1')" style="POSITION: absolute">+</span> <span id="hide1_6_1" class="foldopened" onClick="hide_folder('1_6_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Assistant Deputy Minister's Office</span>
+<ul id="fold1_6_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Ministerial Correspondence</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6_2" class="foldclosed" onClick="show_folder('1_6_2')" style="POSITION: absolute">+</span> <span id="hide1_6_2" class="foldopened" onClick="hide_folder('1_6_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Electricity Resources Branch</span>
+<ul id="fold1_6_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Renewable and Electrical Energy Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Nuclear Energy Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Uranium and Radioactive Waste Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6_3" class="foldclosed" onClick="show_folder('1_6_3')" style="POSITION: absolute">+</span> <span id="hide1_6_3" class="foldopened" onClick="hide_folder('1_6_3')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Petroleum Resources Branch</span>
+<ul id="fold1_6_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Energy Infrastructure Security</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Offshore Petroleum Management Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Pipelines, Gas and LNG Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Canadian Oil, Refining, and Energy Security Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">NEB Modernization Secretariat</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6_4" class="foldclosed" onClick="show_folder('1_6_4')" style="POSITION: absolute">+</span> <span id="hide1_6_4" class="foldopened" onClick="hide_folder('1_6_4')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Energy Policy Branch</span>
+<ul id="fold1_6_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Energy and Economic Analysis Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Energy and Environment Policy Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Strategic Energy Policy Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6_5" class="foldclosed" onClick="show_folder('1_6_5')" style="POSITION: absolute">+</span> <span id="hide1_6_5" class="foldopened" onClick="hide_folder('1_6_5')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Office of Energy Efficiency</span>
+<ul id="fold1_6_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Demand Policy and Analysis</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Housing</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Transportation and Alternative Fuels Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Equipment</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Buildings and Industry Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6_6" class="foldclosed" onClick="show_folder('1_6_6')" style="POSITION: absolute">+</span> <span id="hide1_6_6" class="foldopened" onClick="hide_folder('1_6_6')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">International Energy Branch</span>
+<ul id="fold1_6_6" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">China and the Americas Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Europe, Asia and Multilateral Division</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7" class="foldclosed" onClick="show_folder('1_7')" style="POSITION: absolute">+</span> <span id="hide1_7" class="foldopened" onClick="hide_folder('1_7')">-</span>
+<span style="color: #00b439;">Lands and Minerals Sector</span>
+<ul id="fold1_7" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_7_1" class="foldclosed" onClick="show_folder('1_7_1')" style="POSITION: absolute">+</span> <span id="hide1_7_1" class="foldopened" onClick="hide_folder('1_7_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Assistant Deputy Minister Office</span>
+<ul id="fold1_7_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">International Affairs and Trade Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Strategic Policy Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Industry and Economic Analysis Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_2" class="foldclosed" onClick="show_folder('1_7_2')" style="POSITION: absolute">+</span> <span id="hide1_7_2" class="foldopened" onClick="hide_folder('1_7_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Surveyor General Branch - Geomatics Canada</span>
+<ul id="fold1_7_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General Office</span>
+
+</li>
+<li><span id="show1_7_2_1" class="foldclosed" onClick="show_folder('1_7_2_1')" style="POSITION: absolute">+</span> <span id="hide1_7_2_1" class="foldopened" onClick="hide_folder('1_7_2_1')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Eastern Canada Division</span>
+<ul id="fold1_7_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Atlantic Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Quebec Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Cadastral Information Service</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Survey Regulations and Standards, Ottawa</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">International Boundary Commission- Canadian Section</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_2_2" class="foldclosed" onClick="show_folder('1_7_2_2')" style="POSITION: absolute">+</span> <span id="hide1_7_2_2" class="foldopened" onClick="hide_folder('1_7_2_2')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Northern Region</span>
+<ul id="fold1_7_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Nunavut Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Northwest Territories Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Yukon Regional Office</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_2_3" class="foldclosed" onClick="show_folder('1_7_2_3')" style="POSITION: absolute">+</span> <span id="hide1_7_2_3" class="foldopened" onClick="hide_folder('1_7_2_3')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Western Canada Division</span>
+<ul id="fold1_7_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Survey Regulations and Standards, Edmonton</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Alberta Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Saskatchewan Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">British Columbia Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Manitoba Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Ontario Regional Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">First Nation Land Management Coordination</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_2_4" class="foldclosed" onClick="show_folder('1_7_2_4')" style="POSITION: absolute">+</span> <span id="hide1_7_2_4" class="foldopened" onClick="hide_folder('1_7_2_4')">-</span>
+<span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Canadian Geodetic Survey</span>
+<ul id="fold1_7_2_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Geodetic Systems and Infrastructures</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Geodetic Analysis and Development</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_3" class="foldclosed" onClick="show_folder('1_7_3')" style="POSITION: absolute">+</span> <span id="hide1_7_3" class="foldopened" onClick="hide_folder('1_7_3')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Business Management Services &amp; Data</span>
+<ul id="fold1_7_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Tax and Kimberley Process Program Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Planning and Science Liaison Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Minerals and Metals Statistics Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Business Management Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Extractive Sector Transparency Measures Act</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Policy and Economics Branch</span>
+
+</li>
+<li><span id="show1_7_4" class="foldclosed" onClick="show_folder('1_7_4')" style="POSITION: absolute">+</span> <span id="hide1_7_4" class="foldopened" onClick="hide_folder('1_7_4')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Hazards, Adaptation and Operations Branch</span>
+<ul id="fold1_7_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Climate Change Impacts &amp; Adaptation Division</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Polar Continental Shelf Program</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Canadian Hazards Information Service</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_5" class="foldclosed" onClick="show_folder('1_7_5')" style="POSITION: absolute">+</span> <span id="hide1_7_5" class="foldopened" onClick="hide_folder('1_7_5')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Geological Survey of Canada</span>
+<ul id="fold1_7_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">GSC Atlantic</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">GSC-Central Canada</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">GSC Pacific</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">GSC Quebec</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">GSC Calgary</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">UNCLOS</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">GSC-Northern Canada</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_6" class="foldclosed" onClick="show_folder('1_7_6')" style="POSITION: absolute">+</span> <span id="hide1_7_6" class="foldopened" onClick="hide_folder('1_7_6')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Explosives Safety and Security Branch</span>
+<ul id="fold1_7_6" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Canadian Explosives Research Laboratory</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Explosives Regulatory Division</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_7" class="foldclosed" onClick="show_folder('1_7_7')" style="POSITION: absolute">+</span> <span id="hide1_7_7" class="foldopened" onClick="hide_folder('1_7_7')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">CanmetMINING</span>
+<ul id="fold1_7_7" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Finance and Administration</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Ground Control</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Business Affairs</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Occupational Health, Safety and Environmental Protection - CANMET</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Engineering and Technical Services</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Green Mining Innovation - Processing</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Environmental Risk Management</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Alternative Energy Technologies</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Business and Operations</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Project Management and Informatics</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Analytical Services, CCRMP and PTP-MAL</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Green Mining Innovation - Environment</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Green Mining Innovation - Extraction</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Mining Extraction Technologies</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Canadian Minerals and Metals Plan Secretariat</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;">Indigenous Affairs and Reconciliation Sector</span>
+
+</li>
+<li><span style="color: #00b439;">Indigenous Partnerships Office - West</span>
+
+</li>
+<li><span id="show1_8" class="foldclosed" onClick="show_folder('1_8')" style="POSITION: absolute">+</span> <span id="hide1_8" class="foldopened" onClick="hide_folder('1_8')">-</span>
+<span style="color: #00b439;">Innovation and Energy Technology Sector</span>
+<ul id="fold1_8" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Assistant Deputy Minister's Office</span>
+
+</li>
+<li><span id="show1_8_1" class="foldclosed" onClick="show_folder('1_8_1')" style="POSITION: absolute">+</span> <span id="hide1_8_1" class="foldopened" onClick="hide_folder('1_8_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Policy and Planning Branch</span>
+<ul id="fold1_8_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Clean Growth Hub</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Finance</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Intellectual Property</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">International Collaboration</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Planning and Results</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Policy Analysis and Coordination</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_8_2" class="foldclosed" onClick="show_folder('1_8_2')" style="POSITION: absolute">+</span> <span id="hide1_8_2" class="foldopened" onClick="hide_folder('1_8_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Office of Energy Research and Development</span>
+<ul id="fold1_8_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Financial Operations</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Energy Science and Technology Programs</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Energy Technology Policy</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_8_3" class="foldclosed" onClick="show_folder('1_8_3')" style="POSITION: absolute">+</span> <span id="hide1_8_3" class="foldopened" onClick="hide_folder('1_8_3')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">CanmetENERGY-Ottawa</span>
+<ul id="fold1_8_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Buildings and Renewables Group</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Clean Fossil Fuels</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Industrial Innovation Group</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Operations</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">CanmetMATERIALS-Hamilton</span>
+
+</li>
+<li><span id="show1_8_4" class="foldclosed" onClick="show_folder('1_8_4')" style="POSITION: absolute">+</span> <span id="hide1_8_4" class="foldopened" onClick="hide_folder('1_8_4')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">CanmetENERGY-Devon</span>
+<ul id="fold1_8_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Multi-Phase Systems</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Fuels and Emissions</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Separation Technology</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Upgrading</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Program Planning &amp; Performance</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Analytical</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Tailings Management</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Engineering</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Water Management</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_8_5" class="foldclosed" onClick="show_folder('1_8_5')" style="POSITION: absolute">+</span> <span id="hide1_8_5" class="foldopened" onClick="hide_folder('1_8_5')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">CanmetENERGY-Varennes</span>
+<ul id="fold1_8_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Industrial Systems Optimization</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Operations</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Buildings</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Integration of Renewable and Distributed Energy Resources</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">RETScreen International</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;">Interdepartmental Task Team on the Environmental and Regulatory Reviews</span>
+
+</li>
+<li><span style="color: #00b439;">Legal Services</span>
+
+</li>
+<li><span id="show1_9" class="foldclosed" onClick="show_folder('1_9')" style="POSITION: absolute">+</span> <span id="hide1_9" class="foldopened" onClick="hide_folder('1_9')">-</span>
+<span style="color: #00b439;">Major Projects Management Office</span>
+<ul id="fold1_9" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_9_1" class="foldclosed" onClick="show_folder('1_9_1')" style="POSITION: absolute">+</span> <span id="hide1_9_1" class="foldopened" onClick="hide_folder('1_9_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Operations</span>
+<ul id="fold1_9_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Resource Development Projects</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">TMX</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Transmission Projects</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_9_2" class="foldclosed" onClick="show_folder('1_9_2')" style="POSITION: absolute">+</span> <span id="hide1_9_2" class="foldopened" onClick="hide_folder('1_9_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Strategic Policy &amp; Planning</span>
+<ul id="fold1_9_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Policy Leadership and Reporting</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Policy Research and Analysis</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;">Northern Pipeline Agency</span>
+
+</li>
+<li><span style="color: #00b439;">Office of the Chief Scientist</span>
+
+</li>
+<li><span id="show1_10" class="foldclosed" onClick="show_folder('1_10')" style="POSITION: absolute">+</span> <span id="hide1_10" class="foldopened" onClick="hide_folder('1_10')">-</span>
+<span style="color: #00b439;">Strategic Policy and Results Sector</span>
+<ul id="fold1_10" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Assistant Deputy Minister's Office</span>
+
+</li>
+<li><span id="show1_10_1" class="foldclosed" onClick="show_folder('1_10_1')" style="POSITION: absolute">+</span> <span id="hide1_10_1" class="foldopened" onClick="hide_folder('1_10_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Strategic Policy Branch</span>
+<ul id="fold1_10_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Strategic and Horizontal Policy</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Cabinet Affairs</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_2" class="foldclosed" onClick="show_folder('1_10_2')" style="POSITION: absolute">+</span> <span id="hide1_10_2" class="foldopened" onClick="hide_folder('1_10_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Economic Analysis, Data and Research Branch</span>
+<ul id="fold1_10_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Integrated Science and Policy Research</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Policy Research and Statistics</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Economic Analysis</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_3" class="foldclosed" onClick="show_folder('1_10_3')" style="POSITION: absolute">+</span> <span id="hide1_10_3" class="foldopened" onClick="hide_folder('1_10_3')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">External Policy and Partnerships Branch</span>
+<ul id="fold1_10_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">International Affairs</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Intergovernmental Affairs</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_4" class="foldclosed" onClick="show_folder('1_10_4')" style="POSITION: absolute">+</span> <span id="hide1_10_4" class="foldopened" onClick="hide_folder('1_10_4')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Planning, Delivery and Results Branch</span>
+<ul id="fold1_10_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Strategic Planning and Reporting</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">IN.spire Innovation Hub</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_5" class="foldclosed" onClick="show_folder('1_10_5')" style="POSITION: absolute">+</span> <span id="hide1_10_5" class="foldopened" onClick="hide_folder('1_10_5')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Canada Centre for Mapping and Earth Observation</span>
+<ul id="fold1_10_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Canadian Geospatial Data Infrastructure</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Canada Centre for Remote Sensing</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Director General's Office</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">GeoBase</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Federal Geospatial Platform</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Business and Program Integrity Office</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Canada-United States Horizontal Task Group</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_11" class="foldclosed" onClick="show_folder('1_11')" style="POSITION: absolute">+</span> <span id="hide1_11" class="foldopened" onClick="hide_folder('1_11')">-</span>
+<span style="color: #00b439;">Shared Services Canada</span>
+<ul id="fold1_11" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Director</span>
+
+</li>
+<li><span id="show1_11_1" class="foldclosed" onClick="show_folder('1_11_1')" style="POSITION: absolute">+</span> <span id="hide1_11_1" class="foldopened" onClick="hide_folder('1_11_1')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">IT Portfolio</span>
+<ul id="fold1_11_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Data Center</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">E-Messaging</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Video Conference</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_11_2" class="foldclosed" onClick="show_folder('1_11_2')" style="POSITION: absolute">+</span> <span id="hide1_11_2" class="foldopened" onClick="hide_folder('1_11_2')">-</span>
+<span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Server Hosting Services</span>
+<ul id="fold1_11_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">Network</span>
+
+</li>
+<li><span style="color: #111111;font-size: 75%;font-family: Futura Lt BT, sans-serif; ">IT Security</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Telecommunications</span>
+
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Project Management Office</span>
+
+</li>
+<li><span style="color: #990000;font-size: 87%;font-family: Futura Lt BT, sans-serif; ">Storage &amp; Backups</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul><SCRIPT type="text/javascript">
+fold_document();
+</SCRIPT>
+</body>
 </html>
